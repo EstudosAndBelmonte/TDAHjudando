@@ -6,62 +6,37 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 
-    <title>TDAHjudando</title>
+    <title> TDAHjudando</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link href="<?= $url . '/resource/img/TDAHjudandoIcon.png' ?>" rel="shortcut icon" type="image/x-icon">
+    <link href="{{asset('/img/TDAHjudandoIcon.png')}}" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset('/css/menu.scss')}}">
+    <link href="{{asset('/css/nucleo-icons.css')}}" rel="stylesheet" />
+    <link href="{{asset('/css/nucleo-svg.css')}}" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="{{asset('/css/material-dashboard.css?v=3.1.0')}}" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+
+
     <style type="text/css">
         @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
-        /* body {
-            margin: 0;
-            font-size: .9rem;
-            font-weight: 400;
-            line-height: 1.6;
-            color: #212529;
-            text-align: left;
-            background-color: #f5f8fa;
-        }
-
-        .navbar-laravel {
-            box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
-        }
-
-        .navbar-brand,
-        .nav-link,
-        .my-form,
-        .login-form {
-            font-family: Raleway, sans-serif;
-        }
-
-        .my-form {
-            padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
-        }
-
-        .my-form .row {
-            margin-left: 0;
-            margin-right: 0;
-        }
-
-        .login-form {
-            padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
-        }
-
-        .login-form .row {
-            margin-left: 0;
-            margin-right: 0;
-        } */
     </style>
 </head>
 
-<body>
+<body style="background-color:gray;">
 
 
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark navbar-laravel">
         <div class="container">
-            <a class="navbar-brand" href="<?= $url ?>"><img src="<?= $url . '/resource/img/TDAHjudando.png'  ?>" alt="" srcset=""></a>
+            <a class="navbar-brand" @if(Auth::check()) href="{{ route('home') }}" @endif @if(Auth::guest()) href="{{ route('login') }}" @endif><img class=".img-fluid" src="{{asset('img/TDAHjudando.png')}}" style="width:80%" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -85,9 +60,21 @@
             </div>
         </div>
     </nav>
-
     @yield('content')
 
+    <footer class="bg-dark text-center text-white fixed-bottom">
+        <!-- Copyright -->
+        <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            JoshTec © 2023 Copyright:
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <script src="{{asset('/js/core/popper.min.js')}}"></script>
+    <script src="{{asset('/js/core/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/js/plugins/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('/js/plugins/smooth-scrollbar.min.js')}}"></script>
+    <script src="{{asset('/js/menu.js')}}"></script>
+    <script src="{{asset('/js/material-dashboard.min.js?v=3.1.0')}}"></script>
 </body>
 
 </html>
